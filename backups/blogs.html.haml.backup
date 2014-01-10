@@ -1,0 +1,37 @@
+
+.row.min-h-150
+	.span3
+		%h1=I18n.t(:blogs)
+		%h5.c-gray
+			=I18n.t(:recenttenarticles)
+
+	.span8
+		- blog.local_articles[0...10].each do |article|
+			%li.row-fluid.no-point
+				.span10
+					%a{:href=>"#{article.url}"}= article.title
+				.span2.text-right
+					%span.text-right= article.date.strftime('%b %e , %Y')
+.row.min-h-150
+	.span3
+		%h1=I18n.t(:tags)
+	.span8
+		- blog.tags.each do |tag, articles|
+			%li
+				%a{:href=>"#{tag_path tag}"}
+					%span= tag
+					%span= "("
+					%span= articles.size
+					%span= ")"
+
+.row.min-h-150
+	.span3
+		%h1=I18n.t(:years)
+	.span8
+		- blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+			%li
+				%a{:href=>"#{blog_year_path year}"}
+					%span= year
+					%span= "("
+					%span= articles.size
+					%span= ")"

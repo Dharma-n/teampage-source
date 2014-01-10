@@ -1,0 +1,14 @@
+{
+	"locale_dict":
+	{
+		"en" : "",
+		"cn" : "/cn",
+		"ja" : "/ja"
+	},
+	"locale_dict_top":
+	{
+		"en" : "/",
+		"cn" : "/cn",
+		"ja" : "/ja"
+	}
+}

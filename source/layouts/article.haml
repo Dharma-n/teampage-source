@@ -1,0 +1,6 @@
+-wrap_layout :layout do
+	%h1=current_page.title
+	%hr
+	%article=yield
+	%hr
+	%h4=current_page.date.strftime('%b %e , %Y')

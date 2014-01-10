@@ -1,0 +1,12 @@
+- @title = "dharma-n"
+- @bodyclass = "newproject"
+
+.hero-unit
+    npm install dharma-n
+
+%h1=I18n.t(:blogs)
+%hr
+%h3=blog.local_articles[0].title
+=blog.local_articles[0].body
+%b=blog.local_articles[0].date.strftime("%B %d %Y")
+%hr

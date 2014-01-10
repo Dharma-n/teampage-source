@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+%html{ :lang => '#{I18n.locale}' }
+
+%head
+  %meta{:charset => "utf-8"}
+  %meta{'http-equiv' => "X-UA-Compatible", :content =>"IE=edge,chrome=1"}
+
+  -# Pull in the page title
+  %title= @title
+
+  %meta{:name => "description", :content => ""}
+  %meta{:name => "author", :content => ""}
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+
+  -# Place favicon.ico and apple-touch-icon.png in the root directory
+
+  = stylesheet_link_tag "bootstrap.min"
+  = stylesheet_link_tag "custom"
+
+%body
+  .container
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{ 'data-toggle' => "collapse",  "data-target" => ".nav-collapse" }
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %img.pull-left{ "src" => "/img/logo/40x40.png" }
+          %a.brand{ "href" =>"#{data.general.locale_dict_top[I18n.locale]}"} dharma-n.io
+          %ul.nav.pull-right
+            %li
+              %a{ "href" =>"#{data.general.locale_dict_top[I18n.locale]}" }
+                %i.icon-home
+            %li
+              %a{ "href" => "#{data.general.locale_dict[I18n.locale]}/blogs.html" }
+                %i.icon-pencil
+            %li
+              %a{ "href" => "https://github.com/Dharma-n" }
+                %i.icon-book               
+            %li#preview-menu.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %i.icon-globe
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "/ja/#{current_page.path.split('/')[-1]}"} > 日本語
+                %li
+                  %a{:href => "/cn/#{current_page.path.split('/')[-1]}"} > 简体中文
+                %li
+                  %a{:href => "/#{current_page.path.split('/')[-1]}"} > English
+   
+    %h1= @title
+    ~ yield
+
+    %footer
+      %p &copy; #{copyright_years(2011)} Dharma-n.io
+
+  = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
+  :javascript
+    window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.8.3.min.js"><\/script>')
+
+  = javascript_include_tag "plugins", "script"
+  = javascript_include_tag "bootstrap.js"
+  = javascript_include_tag "highlight.pack"
+  = stylesheet_link_tag "solarized_light"
+  %script hljs.initHighlightingOnLoad();
+
+
+  -# Google Analytics: change UA-XXXXX-X to be your site's ID.
+  -# uncomment when deploying
+  / :javascript
+  /   var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+  /   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  /   g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  /   s.parentNode.insertBefore(g,s)}(document,'script'));

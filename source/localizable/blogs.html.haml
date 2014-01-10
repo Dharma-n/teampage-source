@@ -1,0 +1,13 @@
+.row.min-h-150
+	.span3
+		%h1=I18n.t(:blogs)
+		%h5.c-gray
+			=I18n.t(:recentthirtyarticles)
+
+	.span8
+		- blog.local_articles[0...30].each do |article|
+			%li.row-fluid.no-point
+				.span10
+					%a{:href=>"#{article.url}"}= article.title
+				.span2.text-right
+					%span.text-right= article.date.strftime('%b %e , %Y')
