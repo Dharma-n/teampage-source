@@ -1,4 +1,4 @@
-# Middleman Twitter Bootstrap
+# Read this before you pull and renew ->
 
 
 ## What is it?

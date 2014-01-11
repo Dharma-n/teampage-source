@@ -1,12 +1,23 @@
-- @title = "dharma-n"
+- @title = ""
 - @bodyclass = "newproject"
 
-.hero-unit
-    npm install dharma-n
+%h1
+	%span=I18n.t(:dharma)
+	%span.c-gray=I18n.t(:stateless_micro_framework)
 
 %h1=I18n.t(:blogs)
 %hr
-%h3=blog.local_articles[0].title
-=blog.local_articles[0].body
-%b=blog.local_articles[0].date.strftime("%B %d %Y")
-%hr
+.row
+	.span8
+		%h3=blog.local_articles[0].title
+		=blog.local_articles[0].body
+		%b=blog.local_articles[0].date.strftime("%B %d %Y")
+		%hr
+	.span4
+		%span.label.label-info
+			%i.icon-book.icon-white
+			=t(:docs)
+		%span.label.label-success
+			%i.icon-eye-open.icon-white
+			=t(:source)
+				

@@ -1,4 +1,10 @@
 body{ padding-top: 60px; }
 .min-h-150{ min-height: 150px; }
 .c-gray { color:gray; }
+.c-red { color:#d9230f;}
+.b-sharp { 
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
 li.no-point { list-style-type: none; }
